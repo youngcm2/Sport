@@ -224,6 +224,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\an-sport-service - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\xamarin-sport - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\xamarin-sportv2 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\xamarin-sportv2 - Web Deploy.pubxml" />
