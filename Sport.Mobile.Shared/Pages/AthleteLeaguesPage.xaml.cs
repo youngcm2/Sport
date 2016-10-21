@@ -182,7 +182,12 @@ namespace Sport.Mobile.Shared
 		async void OnFeedbackSelected()
 		{
 			var hockeyApp = DependencyService.Get<IHockeyApp>();
+			if (true)
+			{
+				throw new Exception("This is unhandled");
+			}
 			hockeyApp.ShowFeedback();
+
 			await Task.FromResult(0);
 		}
 
