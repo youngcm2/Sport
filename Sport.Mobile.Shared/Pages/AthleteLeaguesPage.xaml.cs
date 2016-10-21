@@ -199,6 +199,8 @@ namespace Sport.Mobile.Shared
 		async void OnAboutSelected()
 		{
 			_hockeyApp.TrackEvent("ShowAbout");
+
+			throw new Exception("This should not happen");
 			
 			var page = new AboutPage();
 			page.AddDoneButton();
