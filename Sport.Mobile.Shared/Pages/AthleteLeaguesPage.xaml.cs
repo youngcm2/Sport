@@ -121,6 +121,7 @@ namespace Sport.Mobile.Shared
 		const string _profile = "My Profile";
 		const string _logout = "Log Out";
 		const string _about = "About";
+		const string _feedback = "Feedback";
 
 		List<string> GetMoreMenuOptions()
 		{
@@ -132,7 +133,7 @@ namespace Sport.Mobile.Shared
 
 			lst.Add(_about);
 			lst.Add(_logout);
-
+			lst.Add(_feedback);
 			return lst;
 		}
 
@@ -152,6 +153,10 @@ namespace Sport.Mobile.Shared
 
 			if(action == _about)
 				OnAboutSelected();
+
+			if (action == _feedback)
+				OnFeedbackSelected();
+
 		}
 
 		void OnLogoutSelected()
@@ -173,6 +178,13 @@ namespace Sport.Mobile.Shared
 		//{
 		//	await Navigation.PushModalAsync(new AdminPage().WithinNavigationPage());
 		//}
+
+		async void OnFeedbackSelected()
+		{
+			var hockeyApp = DependencyService.Get<IHockeyApp>();
+			hockeyApp.ShowFeedback();
+			await Task.FromResult(0);
+		}
 
 		async void OnAboutSelected()
 		{

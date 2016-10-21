@@ -220,6 +220,7 @@
     <Compile Include="Services\Managers\AthleteManager.cs" />
     <Compile Include="Services\Managers\ChallengeManager.cs" />
     <Compile Include="Services\Managers\GameResultManager.cs" />
+    <Compile Include="Interfaces\IHockeyApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ModernHttpClient">
