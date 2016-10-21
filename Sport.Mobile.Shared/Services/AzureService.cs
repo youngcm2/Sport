@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using ModernHttpClient;
-using System.Diagnostics;
+using System.IO;
 
 namespace Sport.Mobile.Shared
 {
@@ -14,8 +14,10 @@ namespace Sport.Mobile.Shared
 	{
 		public AzureService()
 		{
-			var url = new Uri(Keys.AzureDomain);
-			var store = new MobileServiceSQLiteStore($"{url.Host}.db");
+			
+
+			var path = App.Path;
+			var store = new MobileServiceSQLiteStore(path);
 			store.DefineTable<Athlete>();
 			store.DefineTable<League>();
 			store.DefineTable<Membership>();

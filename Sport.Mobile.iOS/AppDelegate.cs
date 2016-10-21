@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using System.Diagnostics;
 using Newtonsoft.Json;
 using HockeyApp.iOS;
+using System.IO;
 
 namespace Sport.Mobile.Shared.iOS
 {
@@ -20,12 +21,19 @@ namespace Sport.Mobile.Shared.iOS
             #endif
 
 			//Uncomment when a HockeyApp iOS App ID is provided in Keys.cs
-            //var manager = BITHockeyManager.SharedHockeyManager;
-            //manager.Configure(Keys.HockeyAppId_iOS);
-            //manager.StartManager();
+            var manager = BITHockeyManager.SharedHockeyManager;
+            manager.Configure(Keys.HockeyAppId_iOS);
+            manager.StartManager();
 
             CurrentPlatform.Init();
 			SQLitePCL.CurrentPlatform.Init();
+			var url = new Uri(Keys.AzureDomain);
+			var path = $"{url.Host}.db";
+			App.Path = Path.Combine(Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), path);
+			if (!File.Exists(App.Path))
+			{
+				File.Create(App.Path).Dispose();
+			}
 			Forms.Init();
 			ImageCircleRenderer.Init();
 

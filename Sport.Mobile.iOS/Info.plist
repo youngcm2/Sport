@@ -36,8 +36,6 @@
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>CFBundleName</key>
-	<string>Sport</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -51,8 +49,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>CFBundleIdentifier</key>
-	<string>com.xamarin.sport</string>
 	<key>CFBundleShortVersionString</key>
 	<string>2.0</string>
 	<key>CFBundleVersion</key>
@@ -61,5 +57,9 @@
 	<array>
 		<string>remote-notification</string>
 	</array>
+	<key>CFBundleIdentifier</key>
+	<string>co.u4ic.sports</string>
+	<key>CFBundleName</key>
+	<string>Sports - DevUp</string>
 </dict>
 </plist>

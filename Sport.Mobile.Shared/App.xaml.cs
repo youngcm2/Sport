@@ -69,6 +69,7 @@ namespace Sport.Mobile.Shared
 			get;
 			set;
 		} = new List<string>();
+		public static string Path { get; set; }
 
 		#endregion
 
