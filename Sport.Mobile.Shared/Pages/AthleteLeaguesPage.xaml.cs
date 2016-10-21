@@ -7,9 +7,14 @@ namespace Sport.Mobile.Shared
 {
 	public partial class AthleteLeaguesPage : AthleteLeaguesXaml
 	{
+
+		private readonly IHockeyApp _hockeyApp;
+
 		public AthleteLeaguesPage(Athlete athlete)
 		{
 			//ViewModel is newed up in the ViewModel getter of BaseContentPage
+			_hockeyApp = DependencyService.Get<IHockeyApp>();
+
 			ViewModel.Athlete = athlete;
 			Initialize();
 		}
@@ -161,11 +166,15 @@ namespace Sport.Mobile.Shared
 
 		void OnLogoutSelected()
 		{
+			_hockeyApp.TrackEvent("Logout");
+			
 			LogoutUser();
 		}
 
 		async void OnProfileSelected()
 		{
+			_hockeyApp.TrackEvent("ShowProfile");
+			
 			if(App.Instance.CurrentAthlete == null || App.Instance.CurrentAthlete.Id == null)
 				return;
 
@@ -181,18 +190,16 @@ namespace Sport.Mobile.Shared
 
 		async void OnFeedbackSelected()
 		{
-			var hockeyApp = DependencyService.Get<IHockeyApp>();
-			if (true)
-			{
-				throw new Exception("This is unhandled");
-			}
-			hockeyApp.ShowFeedback();
+			_hockeyApp.TrackEvent("ShowFeedback");
+			_hockeyApp.ShowFeedback();
 
 			await Task.FromResult(0);
 		}
 
 		async void OnAboutSelected()
 		{
+			_hockeyApp.TrackEvent("ShowAbout");
+			
 			var page = new AboutPage();
 			page.AddDoneButton();
 
