@@ -24,6 +24,7 @@ namespace Sport.Mobile.Shared.iOS
             var manager = BITHockeyManager.SharedHockeyManager;
             manager.Configure(Keys.HockeyAppId_iOS);
             manager.StartManager();
+			manager.Authenticator.AuthenticateInstallation();
 
             CurrentPlatform.Init();
 			SQLitePCL.CurrentPlatform.Init();
